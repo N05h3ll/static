@@ -18,6 +18,7 @@ pipeline{
         }
         stage("Ensure content is up"){
             steps{
+                retry(3){
                 sh '''
                         if curl --silent --head --fail "http://udacity-project-jenkins.s3-website.eu-central-1.amazonaws.com/"; then \
                             echo "The content is up ... "; \
@@ -28,7 +29,7 @@ pipeline{
                         fi 
 
                 '''
-            }
+            }}
         }
     }
 }
