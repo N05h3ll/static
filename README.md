@@ -1,2 +1,2 @@
-# static
-Udacity Devops nanodegree project 3 - deploying website using jenkins.
+## Udacity Devops nanodegree project 3 - deploying website using jenkins.
+

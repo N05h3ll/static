@@ -16,5 +16,20 @@ pipeline{
                 }
             }
         }
+        stage("Ensure content is up"){
+            steps{
+                sh '''
+                        if curl --silent --head --fail "http://udacity-project-jenkins.s3-website.eu-central-1.amazonaws.com/"
+                        then
+                            echo "The content is up ... "
+                            exit 0
+                        else
+                            echo "This URL Not Exist !!"
+                            exit 1
+                        fi
+
+                '''
+            }
+        }
     }
 }
